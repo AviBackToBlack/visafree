@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Visa free countries and visa requirements for Irish and Russian citizens" />
+		<meta name="keywords" content="visa,visa free,visa free countries,visa requirements,irish citizens,russian citizens" />
+		<title>Visa-Free Countries Map</title>
+		<style>
+			.vf-loading {
+				background: url("/img/ajax-loader.gif") no-repeat scroll center center #FFF;
+				position: absolute;
+				height: 100%;
+				width: 100%;
+			}
+		</style>
+		<link rel="stylesheet" href="/css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/css/visa-free.css" type="text/css" media="screen" />
+		<script src="/js/jquery-2.2.3.min.js"></script>
+		<script src="/js/jquery-jvectormap-2.0.3.min.js"></script>
+		<script src="/js/jquery-jvectormap-world-mill-en.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/underscore-min.js"></script>
+		<script src="/js/js.cookie.js"></script>
+		<script src="/js/bowser.min.js"></script>
+		<script src="/js/visa-free-min.js"></script>
+		<script src="/js/visa-data-RU-min.js"></script>
+		<script src="/js/visa-data-IE-min.js"></script>
+	</head>
+	<body class="vf-loading">
+		<div class="vf-top">
+			<div class="vf-row">
+				<div class="vf-passports">
+					<span>Passports :</span>
+					<select id="passport1" class="form-control vf-select">
+						<option value="-1">None</option>
+						<option value="0">IE</option>
+						<option value="1">RU</option>
+					</select>
+					<button id="wiki1" type="button" class="btn btn-default btn-wiki" value="-1" data-toggle="tooltip" data-placement="bottom" title="Open the Wikipedia page for the selected passport"></button>
+					<span> + </span>
+					<select id="passport2" class="form-control vf-select">
+						<option value="-1">None</option>
+						<option value="0">IE</option>
+						<option value="1">RU</option>
+					</select>
+					<button id="wiki2" type="button" class="btn btn-default btn-wiki" value="-1" data-toggle="tooltip" data-placement="bottom" title="Open the Wikipedia page for the selected passport"></button>
+				</div>
+				<div class="vf-buttons">
+					<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#disclaimer">Disclaimer</button>
+					<div id="disclaimer" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="disclaimerLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header modal-header-disclaimer">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									<h4 class="modal-title">Disclaimer</h4>
+								</div>
+								<div class="modal-body"><b>
+									<p>The information contained in this Website is for general information purposes only.</p>
+									<p>You must not rely on the information on the Website and you acknowledge that you must
+										take appropriate steps to verify this information before acting on it.</p>
+									<p>The	information is provided by this Website and while we endeavour to keep the
+										information up to date and correct, we make no representations or warranties of any
+										kind, express or implied, about the completeness, accuracy, reliability, suitability or
+										availability with respect to the Website or the information, products, services, or related
+										graphics contained on the Website for any purpose. Any reliance you place on such
+										information is therefore strictly at your own risk.</p>
+									<p>In no event will we be liable for any loss or damage including without limitation, indirect
+										or consequential loss or damage, or any loss or damage whatsoever arising from loss of
+										data or profits arising out of, or in connection with, the use of this Website.
+										Through this Website you are able to link to other websites which are not under the
+										control of this Website. We have no control over the nature, content and availability of
+										those sites. The inclusion of any links does not necessarily imply a recommendation or
+										endorse the views expressed within them.</p>
+									<p>Every effort is made to keep the Website up and running smoothly. However, this
+										Website takes no responsibility for, and will not be liable for, the Website being
+										temporarily unavailable due to technical issues beyond our control.</p></b>
+									<button type="button" value="Close" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn btn-info" data-toggle="modal" data-target="#credits">Credits</button>
+					<div id="credits" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="creditsLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header modal-header-credits">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									<h4 class="modal-title">Credits</h4>
+								</div>
+								<div class="modal-body">
+									<table class="table vf-table">
+										<tbody>
+											<tr>
+												<td>Bootstrap</td>
+												<td>MIT</td>
+											</tr>
+											<tr>
+												<td>Bowser</td>
+												<td>MIT</td>
+											</tr>
+											<tr>
+												<td>Free PHP Mail Form</td>
+												<td>GNU GPL</td>
+											</tr>
+											<tr>
+												<td>JavaScript Cookie</td>
+												<td>MIT</td>
+											</tr>
+											<tr>
+												<td>jQuery</td>
+												<td>MIT</td>
+											</tr>
+											<tr>
+												<td>jVectorMap</td>
+												<td>GNU GPL</td>
+											</tr>
+											<tr>
+												<td>Underscore</td>
+												<td>MIT</td>
+											</tr>
+											<tr>
+												<td>Wikipedia</td>
+												<td>Creative Commons Attribution-ShareAlike License</br></td>
+											</tr>
+										</tbody>
+									</table>
+									<button type="button" value="Close" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#feedback" id="btn-feedback" name="btn-feedback">Feedback</button>
+					<div id="feedback" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="feedbackLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header modal-header-feedback">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									<h4 class="modal-title">Feedback</h4>
+								</div>
+								<div class="modal-body">
+									<form class="form-horizontal" name="commentform" id="commentform" method="post">
+										<input type="hidden" name="captchaquestion" id="captchaquestion"></input>
+										<div class="form-group">
+											<label class="control-label col-md-4" for="email">Email Address</label>
+											<div class="col-md-6 input-group">
+												<span class="input-group-addon">@</span>
+												<input type="email" class="form-control" id="email" name="email" placeholder="Email Address"/>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4" for="comment">Question or Comment</label>
+											<div class="col-md-6">
+												<textarea rows="6" class="form-control" id="comment" name="comment" placeholder="Your question or comment here" required="required"></textarea>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-4" for="result" id="captcha-question-label" name="captcha-question-label"></label>
+											<div class="col-md-6">
+												<input type="number" class="form-control" id="captcha" name="captcha" placeholder="Resolve the captcha here" required="required"/>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-6">
+												<button type="submit" value="Submit" class="btn btn-primary pull-right" id="btn-submit" name="btn-submit">Send</button>
+											</div>
+											<div class="col-md-6">
+												<button type="button" value="Close" class="btn btn-default" data-dismiss="modal">Close</button>
+											</div>
+										</div>
+										<div id="result"> </div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="world-map">
+			<noscript>
+				<h3 class="bg-warning">For full functionality of this site it is necessary to enable JavaScript.
+				Here are the <a href="http://www.enable-javascript.com/" target="_blank">
+				instructions how to enable JavaScript in your web browser</a>.</h3>
+			</noscript>
+		</div>
+	</body>
+</html>
