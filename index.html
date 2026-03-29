@@ -18,35 +18,25 @@
 		<link rel="stylesheet" href="/css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="/css/visa-free.css" type="text/css" media="screen" />
-		<script src="/js/jquery-2.2.3.min.js"></script>
-		<script src="/js/jquery-jvectormap-2.0.3.min.js"></script>
-		<script src="/js/jquery-jvectormap-world-mill-en.js"></script>
-		<script src="/js/bootstrap.min.js"></script>
-		<script src="/js/underscore-min.js"></script>
-		<script src="/js/js.cookie.js"></script>
-		<script src="/js/bowser.min.js"></script>
-		<script src="/js/visa-free-min.js"></script>
-		<script src="/js/visa-data-RU-min.js"></script>
-		<script src="/js/visa-data-IE-min.js"></script>
 	</head>
 	<body class="vf-loading">
 		<div class="vf-top">
 			<div class="vf-row">
 				<div class="vf-passports">
 					<span>Passports :</span>
-					<select id="passport1" class="form-control vf-select">
+					<select id="passport1" class="form-control vf-select" aria-label="First passport">
 						<option value="-1">None</option>
 						<option value="0">IE</option>
 						<option value="1">RU</option>
 					</select>
-					<button id="wiki1" type="button" class="btn btn-default btn-wiki" value="-1" data-toggle="tooltip" data-placement="bottom" title="Open the Wikipedia page for the selected passport"></button>
+					<button id="wiki1" type="button" class="btn btn-default btn-wiki" value="-1" data-toggle="tooltip" data-placement="bottom" title="Open the Wikipedia page for the selected passport" aria-label="Open Wikipedia page for first passport"></button>
 					<span> + </span>
-					<select id="passport2" class="form-control vf-select">
+					<select id="passport2" class="form-control vf-select" aria-label="Second passport">
 						<option value="-1">None</option>
 						<option value="0">IE</option>
 						<option value="1">RU</option>
 					</select>
-					<button id="wiki2" type="button" class="btn btn-default btn-wiki" value="-1" data-toggle="tooltip" data-placement="bottom" title="Open the Wikipedia page for the selected passport"></button>
+					<button id="wiki2" type="button" class="btn btn-default btn-wiki" value="-1" data-toggle="tooltip" data-placement="bottom" title="Open the Wikipedia page for the selected passport" aria-label="Open Wikipedia page for second passport"></button>
 				</div>
 				<div class="vf-buttons">
 					<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#disclaimer">Disclaimer</button>
@@ -57,11 +47,12 @@
 									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 									<h4 class="modal-title">Disclaimer</h4>
 								</div>
-								<div class="modal-body"><b>
+								<div class="modal-body">
+									<div class="disclaimer-text">
 									<p>The information contained in this Website is for general information purposes only.</p>
 									<p>You must not rely on the information on the Website and you acknowledge that you must
 										take appropriate steps to verify this information before acting on it.</p>
-									<p>The	information is provided by this Website and while we endeavour to keep the
+									<p>The information is provided by this Website and while we endeavour to keep the
 										information up to date and correct, we make no representations or warranties of any
 										kind, express or implied, about the completeness, accuracy, reliability, suitability or
 										availability with respect to the Website or the information, products, services, or related
@@ -76,7 +67,8 @@
 										endorse the views expressed within them.</p>
 									<p>Every effort is made to keep the Website up and running smoothly. However, this
 										Website takes no responsibility for, and will not be liable for, the Website being
-										temporarily unavailable due to technical issues beyond our control.</p></b>
+										temporarily unavailable due to technical issues beyond our control.</p>
+									</div>
 									<button type="button" value="Close" class="btn btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
@@ -95,10 +87,6 @@
 										<tbody>
 											<tr>
 												<td>Bootstrap</td>
-												<td>MIT</td>
-											</tr>
-											<tr>
-												<td>Bowser</td>
 												<td>MIT</td>
 											</tr>
 											<tr>
@@ -123,7 +111,7 @@
 											</tr>
 											<tr>
 												<td>Wikipedia</td>
-												<td>Creative Commons Attribution-ShareAlike License</br></td>
+												<td>Creative Commons Attribution-ShareAlike License</td>
 											</tr>
 										</tbody>
 									</table>
@@ -142,7 +130,8 @@
 								</div>
 								<div class="modal-body">
 									<form class="form-horizontal" name="commentform" id="commentform" method="post">
-										<input type="hidden" name="captchaquestion" id="captchaquestion"></input>
+										<input type="hidden" name="captchaquestion" id="captchaquestion" />
+										<input type="hidden" name="csrf_token" id="csrf_token" />
 										<div class="form-group">
 											<label class="control-label col-md-4" for="email">Email Address</label>
 											<div class="col-md-6 input-group">
@@ -182,9 +171,18 @@
 		<div id="world-map">
 			<noscript>
 				<h3 class="bg-warning">For full functionality of this site it is necessary to enable JavaScript.
-				Here are the <a href="http://www.enable-javascript.com/" target="_blank">
+				Here are the <a href="https://www.enable-javascript.com/" target="_blank" rel="noopener noreferrer">
 				instructions how to enable JavaScript in your web browser</a>.</h3>
 			</noscript>
 		</div>
+		<script defer src="/js/jquery-2.2.3.min.js"></script>
+		<script defer src="/js/jquery-jvectormap-2.0.3.min.js"></script>
+		<script defer src="/js/jquery-jvectormap-world-mill-en.js"></script>
+		<script defer src="/js/bootstrap.min.js"></script>
+		<script defer src="/js/underscore-min.js"></script>
+		<script defer src="/js/js.cookie.js"></script>
+		<script defer src="/js/visa-free-min.js"></script>
+		<script defer src="/js/visa-data-RU-min.js"></script>
+		<script defer src="/js/visa-data-IE-min.js"></script>
 	</body>
 </html>
