@@ -1,0 +1,24 @@
+name: Feature request
+description: Suggest an improvement to the site
+title: "feat: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What need would this change address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the smallest useful solution.
+    validations:
+      required: true
+  - type: textarea
+    id: tradeoffs
+    attributes:
+      label: Tradeoffs or alternatives
+      description: Note any deployment/tooling/browser implications, especially if the proposal adds dependencies or a build step.
