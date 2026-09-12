@@ -12,7 +12,7 @@ This repository intentionally uses a simple static HTML/CSS/JavaScript layout wi
 - Preserve the static deployment model unless the change intentionally redesigns it.
 - Do not edit vendored/minified third-party libraries as part of unrelated work.
 - Update both readable and minified project assets when the site expects both variants.
-- Run the GitHub static-validation checks before merge.
+- Run the GitHub static-validation checks and resolve review conversations before merge.
 - Do not commit secrets or private data.
 
 ## Security issues
